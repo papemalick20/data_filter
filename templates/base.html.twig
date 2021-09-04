@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      {% block title %}Welcome!{% endblock %}
+    </title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.css" integrity="sha512-zK13DHt+RvOBWVI7UsG9euzg5sl1QUhJKZVu20rrvPLaTito+K9elJBtEPWi3YJ+O6o5tYp6cdOc4lN9ePm9Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    {% block stylesheets %}
+      {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+      }
+      .filter {
+        display: block;
+        position: sticky;
+        top: 20px;
+      }
+    </style>
+
+    {% block javascripts %}
+      {{ encore_entry_script_tags('app') | replace ({'src=': 'defer src='}) | raw}}
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <a href="/" class="navbar-brand mb-0 h1">Commerce</a>
+    </nav>
+    <div style="margin-top: 2rem;">
+      {% block body %}{% endblock %}
+    </div>
+
+  </body>
+
+</html>

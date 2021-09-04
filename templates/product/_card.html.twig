@@ -1,0 +1,19 @@
+<div class="card">
+  <img src="{{product.image}}" alt="" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <div class="card-title text-primary" style="font-weight: bold; font-size:1.5rem;">
+      {{product.price | number_format(0,',', ' ')}}F
+      {% if product.promo %}
+        <div class="text tex-warning">Promo!</div>
+      {% endif %}
+    </div>
+    <p class="text text-muted">{{ product.description}}
+    </p>
+    <div>
+      {% for c in product.categories %}
+        <em class="text-muted text-primary text-italic">#{{c.name}}</em>
+      {% endfor %}
+    </div>
+  </div>
+</div>
